@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Matter of Time</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .countdown-container {
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .title {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0.7;
+            animation: slideDown 1s ease-out 0.5s both;
+        }
+
+        .countdown {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 100;
+            letter-spacing: 0.05em;
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+            position: relative;
+            animation: scaleIn 1s ease-out 0.8s both;
+        }
+
+        .countdown-label {
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-top: 1.5rem;
+            opacity: 0.5;
+            animation: fadeIn 1s ease-out 1.2s both;
+        }
+
+        .separator {
+            animation: blink 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 0.7;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes blink {
+            0%, 49% {
+                opacity: 1;
+            }
+            50%, 100% {
+                opacity: 0.3;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                margin-bottom: 1.5rem;
+            }
+            .countdown-label {
+                margin-top: 1rem;
+            }
+        }
+
+        /* Subtle background effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.01) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <div class="countdown" id="countdown">
+            <span id="days">00</span><span class="separator">:</span><span id="hours">00</span><span class="separator">:</span><span id="minutes">00</span><span class="separator">:</span><span id="seconds">00</span>
+        </div>
+    </div>
+
+    <script>
+        const targetDate = new Date('August 14, 2025 09:00:00 GMT+0100').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                // Countdown has ended
+                document.getElementById('countdown').innerHTML = '00:00:00';
+                document.querySelector('.title').textContent = 'Results Are Out!';
+                document.querySelector('.countdown-label').textContent = 'Good luck!';
+                document.getElementById('countdown').classList.add('pulse');
+                return;
+            }
+
+            // Calculate time units
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Format with leading zeros
+            const formatNumber = (num) => num.toString().padStart(2, '0');
+
+            // Update the display
+            document.getElementById('days').textContent = formatNumber(days);
+            document.getElementById('hours').textContent = formatNumber(hours);
+            document.getElementById('minutes').textContent = formatNumber(minutes);
+            document.getElementById('seconds').textContent = formatNumber(seconds);
+
+            // Add pulse effect when less than 1 hour remains
+            if (distance < 3600000) {
+                document.getElementById('countdown').classList.add('pulse');
+            }
+        }
+
+        // Initial update
+        updateCountdown();
+
+        // Update every second
+        setInterval(updateCountdown, 1000);
+
+        // Add smooth transitions for number changes
+        const numberElements = document.querySelectorAll('#days, #hours, #minutes, #seconds');
+        numberElements.forEach(element => {
+            element.style.transition = 'all 0.3s ease';
+        });
+
+        // Track previous values for smooth transitions
+        let previousValues = {
+            days: '00',
+            hours: '00',
+            minutes: '00',
+            seconds: '00'
+        };
+
+        // Enhanced update function with transitions
+        function updateCountdownWithTransition() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '00:00:00';
+                document.querySelector('.title').textContent = 'Results Are Out!';
+                document.querySelector('.countdown-label').textContent = 'Good luck!';
+                document.getElementById('countdown').classList.add('pulse');
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const formatNumber = (num) => num.toString().padStart(2, '0');
+
+            const currentValues = {
+                days: formatNumber(days),
+                hours: formatNumber(hours),
+                minutes: formatNumber(minutes),
+                seconds: formatNumber(seconds)
+            };
+
+            // Update with transition effect
+            Object.keys(currentValues).forEach(key => {
+                const element = document.getElementById(key);
+                if (currentValues[key] !== previousValues[key]) {
+                    element.style.transform = 'scale(1.1)';
+                    element.style.opacity = '0.7';
+                    setTimeout(() => {
+                        element.textContent = currentValues[key];
+                        element.style.transform = 'scale(1)';
+                        element.style.opacity = '1';
+                    }, 150);
+                }
+            });
+
+            previousValues = currentValues;
+
+            if (distance < 3600000) {
+                document.getElementById('countdown').classList.add('pulse');
+            }
+        }
+
+        // Replace the simple update with the enhanced version
+        clearInterval(window.countdownInterval);
+        window.countdownInterval = setInterval(updateCountdownWithTransition, 1000);
+    </script>
+</body>
+</html>
