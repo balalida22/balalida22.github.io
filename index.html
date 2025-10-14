@@ -3,54 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown to October 3, 2025</title>
+    <title>Useful Links</title>
     <style>
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            font-family: sans-serif;
+            margin: 20px;
+            line-height: 1.6;
         }
-        .title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+        h1 {
+            color: #333;
         }
-        .days {
-            font-size: 5rem;
-            font-weight: bold;
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1 class="title">Days left</h1>
-    <div class="days" id="days">0</div>
 
-    <script>
-        // Set target date
-        const targetDate = new Date('2025-10-03T00:00:00').getTime();
-        
-        // Update countdown
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-            
-            if (distance < 0) {
-                document.getElementById('days').textContent = "0";
-                return;
-            }
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById('days').textContent = days;
-        }
-        
-        // Initialize and update every day
-        updateCountdown();
-        setInterval(updateCountdown, 86400000); // Update once per day
-    </script>
+    <h1>Important University & Course Links</h1>
+    
+    <p>Click on a link below to visit the respective website:</p>
+
+    <ul>
+        <li>
+            <a href="https://teaching.eng.cam.ac.uk/content/ia-course-information" target="_blank">
+                Cambridge Engineering IA Course Information
+            </a>
+        </li>
+        <li>
+            <a href="https://www.vle.cam.ac.uk/my/" target="_blank">
+                Cambridge VLE (Virtual Learning Environment)
+            </a>
+        </li>
+        <li>
+            <a href="https://calendar.google.com/calendar/u/0/r" target="_blank">
+                Google Calendar
+            </a>
+        </li>
+    </ul>
+
 </body>
 </html>
