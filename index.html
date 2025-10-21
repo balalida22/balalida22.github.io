@@ -21,13 +21,14 @@
             list-style: none;
             padding: 0;
         }
-        li {
-            margin-bottom: 10px;
-        }
+        /* Removed the 'li' style block */
         a {
             color: #007bff;
             text-decoration: none;
             font-size: 1.1em;
+            /* Added 'display: block' and 'margin-bottom' to replace li functionality */
+            display: block; 
+            margin-bottom: 10px;
         }
         a:hover {
             text-decoration: underline;
@@ -40,107 +41,72 @@
 
     <!-- Existing University/General links (kept at the top) -->
     <ul>
-        <li>
-            <a href="https://teaching.eng.cam.ac.uk/content/ia-course-information" target="_blank">
-                Cambridge Engineering IA Course Information
-            </a>
-        </li>
-        <li>
-            <a href="https://www.vle.cam.ac.uk/my/" target="_blank">
-                Moodle: Cambridge VLE (Virtual Learning Environment)
-            </a>
-        </li>
-        <li>
-            <a href="https://calendar.google.com/calendar/u/0/r" target="_blank">
-                Google Calendar
-            </a>
-        </li>
+        <a href="https://teaching.eng.cam.ac.uk/content/ia-course-information" target="_blank">
+            Cambridge Engineering IA Course Information
+        </a>
+        <a href="https://www.vle.cam.ac.uk/my/" target="_blank">
+            Moodle: Cambridge VLE (Virtual Learning Environment)
+        </a>
+        <a href="https://calendar.google.com/calendar/u/0/r" target="_blank">
+            Google Calendar
+        </a>
     </ul>
 
-    <!-- UPDATED: General Student Resources (IA Guide & Example Papers) -->
+    <!-- General Student Resources (IA Guide & Example Papers) -->
     <h2>General Student Resources</h2>
     <ul>
-        <li>
-            <a href="https://teaching.eng.cam.ac.uk/content/part-ia-guide" target="_blank">
-                Engineering Tripos Part IA Guide
-            </a>
-        </li>
-        <li>
-            <!-- Title derived from VLE ID 94562 - this often links to exam paper repositories -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=94562" target="_blank">
-                Example Papers
-            </a>
-        </li>
+        <a href="https://teaching.eng.cam.ac.uk/content/part-ia-guide" target="_blank">
+            Engineering Tripos Part IA Guide
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=94562" target="_blank">
+            Example Papers
+        </a>
     </ul>
     
-    <!-- UPDATED: Core Lecture Moodle Pages -->
+    <!-- Core Lecture Moodle Pages -->
     <h2>Lecture Course Moodle Pages</h2>
     <ul>
-        <li>
-            <!-- 1P1 Mechanics (ID 69861) - Moved to be first based on new naming convention -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69861" target="_blank">
-                Paper 1: Mechanics
-            </a>
-        </li>
-        <li>
-            <!-- NEW: 1P2 Structures (ID 69831) -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69831" target="_blank">
-                Paper 2: Structures & Materials
-            </a>
-        </li>
-        <li>
-            <!-- 1P3 PPE (ID 69811) - New name: Paper 3 -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69811" target="_blank">
-                Paper 3: Professional Practice and Ethics (PPE)
-            </a>
-        </li>
-        <li>
-            <!-- 1P4 Math (ID 69781) -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69781" target="_blank">
-                Paper 4: Mathematical Methods
-            </a>
-        </li>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69861" target="_blank">
+            Paper 1: Mechanics
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69831" target="_blank">
+            Paper 2: Structures & Materials
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69811" target="_blank">
+            Paper 3: Professional Practice and Ethics (PPE)
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69781" target="_blank">
+            Paper 4: Mathematical Methods
+        </a>
     </ul>
 
     <!-- Coursework Moodle Pages -->
     <h2>Coursework Moodle Pages</h2>
     <ul>
-        <li>
-            <!-- Computing (ID 69711) -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69711" target="_blank">
-                Computing Coursework
-            </a>
-        </li>
-        <li>
-            <!-- CAD (ID 69741) -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69741" target="_blank">
-                Computer-aided Design (CAD)
-            </a>
-        </li>
-        <li>
-            <!-- Integrated Electrical Project (ID 69691) -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69691" target="_blank">
-                Integrated Electrical Project (IEP)
-            </a>
-        </li>
-        <li>
-            <!-- NEW: Dimensional Analysis (ID 69761) - Placing near the start of coursework -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69761" target="_blank">
-                Dimensional Analysis Coursework
-            </a>
-        </li>
-        <li>
-            <!-- Engineer in Society (ID 69751) -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=69751" target="_blank">
-                Engineer in Society
-            </a>
-        </li>
-        <li>
-            <!-- Industrial Placement (ID 135162) -->
-            <a href="https://www.vle.cam.ac.uk/course/view.php?id=135162" target="_blank">
-                Industrial Placement
-            </a>
-        </li>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69711" target="_blank">
+            Computing Coursework
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69741" target="_blank">
+            Computer-aided Design (CAD)
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69691" target="_blank">
+            Integrated Electrical Project (IEP)
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69761" target="_blank">
+            Dimensional Analysis Coursework
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=206501" target="_blank">
+            Statics Experiment
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69701" target="_blank">
+            Structural Design
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69751" target="_blank">
+            Engineer in Society
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=135162" target="_blank">
+            Industrial Placement
+        </a>
     </ul>
 
 </body>
