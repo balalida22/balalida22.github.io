@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer: Useful Links</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #fff;
+        }
+        h2 {
+            color: #ccc; /* Slightly darker than original body text */
+            margin-top: 30px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        /* Removed the 'li' style block */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1.1em;
+            /* Added 'display: block' and 'margin-bottom' to replace li functionality */
+            display: block; 
+            margin-bottom: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .restricted {
+            color: red; /* Set the font color to red */
+        }
+        /* Make sure the hover state works for the red links too, keeping them red */
+        .restricted:hover {
+            color: #ff8c8c; /* Lighter red on hover for contrast */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<script>
+    function confirmProceed(url) {
+            var confirmed1 = confirm("STOP! You're about to view the solutions. Take a deep breath and ask yourself if you've truly used all your tools and tried every angle.");
+
+            if (confirmed1) {
+                var confirmed2 = confirm("The moment you copy an answer, you stop your brain from doing the hard work — that's the work that creates lasting knowledge and skill.");
+                if (confirmed2) {
+                    var confirmed3 = confirm("We trust you to be honest with your learning. Click Yes only if you are absolutely stuck and ready to review, not just copy. Keep learning!");
+                    
+                    if (confirmed3) {
+                        window.open(url, '_blank');
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+</script>
+
+<body>
+
+    <h1>Important University & Course Links</h1>
+
+    <!-- Existing University/General links (kept at the top) -->
+    <ul>
+        <a href="https://teaching.eng.cam.ac.uk/content/ia-course-information" target="_blank">
+            Cambridge Engineering IA Course Information
+        </a>
+        <a href="https://www.vle.cam.ac.uk/my/" target="_blank">
+            Moodle: Cambridge VLE (Virtual Learning Environment)
+        </a>
+        <a href="https://cambridgelectures.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx#folderID=%2234ec22fa-145a-46f5-a8c8-ac0200ccc55e%22" target="_blank">
+            Panopto: Lecture Recordings
+        </a>
+        <a class="restricted" href="javascript:void(0)" onclick="return confirmProceed('https://camcribs.com/')">
+            CamCribs
+        </a>
+    </ul>
+
+    <!-- General Student Resources (IA Guide & Example Papers) -->
+    <h2>General Student Resources</h2>
+    <ul>
+        <a href="https://teaching.eng.cam.ac.uk/content/part-ia-guide" target="_blank">
+            Engineering Tripos Part IA Guide
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=94562" target="_blank">
+            Example Papers
+        </a>
+    </ul>
+    
+    <!-- Core Lecture Moodle Pages -->
+    <h2>Lecture Course Moodle Pages</h2>
+    <ul>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69861" target="_blank">
+            Paper 1: Mechanics
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69831" target="_blank">
+            Paper 2: Structures
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69811" target="_blank">
+            Paper 3: Physical Principles of Electronics (PPE)
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69801" target="_blank">
+            Paper 3: Analysis of Circuits
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69781" target="_blank">
+            Paper 4: Mathematical Methods
+        </a>
+    </ul>
+
+    <!-- Coursework Moodle Pages -->
+    <h2>Coursework Moodle Pages</h2>
+    <ul>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69711" target="_blank">
+            Computing Coursework
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69741" target="_blank">
+            Computer-aided Design (CAD)
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69691" target="_blank">
+            Integrated Electrical Project (IEP)
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69761" target="_blank">
+            Dimensional Analysis Coursework
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=206501" target="_blank">
+            Statics Experiment
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69701" target="_blank">
+            Structural Design
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=69751" target="_blank">
+            Engineer in Society
+        </a>
+        <a href="https://www.vle.cam.ac.uk/course/view.php?id=135162" target="_blank">
+            Industrial Placement
+        </a>
+    </ul>
+
+</body>
+</html>
